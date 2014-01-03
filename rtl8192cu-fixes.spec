@@ -39,17 +39,17 @@ This package will place the driver in /lib/modules/%{kernelversion}/%{name}
 %setup -q
 
 %build
+cp -vr %{buildroot} /usr/src/%{name}
 make %{?_smp_mflags}
 
 %install
 %make_install
 
 %post
-cp -vr %{build_root}/%{name} /usr/src/%{name}
 dkms add /usr/src/%{name}
 depmod -a
 modprobe 8192cu
-cp -v %{build_root}/%{name}/blacklist-native-rtl8192.conf /etc/modprobe.d/
+cp -v /usr/src/%{name}/blacklist-native-rtl8192.conf /etc/modprobe.d/
 
 %files
 %defattr(-,root,root)
