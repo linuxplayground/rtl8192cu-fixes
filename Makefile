@@ -243,7 +243,7 @@ ARCH ?= $(SUBARCH)
 CROSS_COMPILE ?=
 KVER  := $(shell uname -r)
 KSRC := /lib/modules/$(KVER)/build
-MODDESTDIR := /lib/modules/$(KVER)/
+MODDESTDIR := /lib/modules/$(KVER)/drivers/net/wireless/
 INSTALL_PREFIX :=
 endif
 
